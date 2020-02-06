@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="XAudio2">
+      <UniqueIdentifier>{8684ff55-f7be-4263-a8f7-1eb841230513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAudio2\SourceVoice">
+      <UniqueIdentifier>{01c7d62a-314f-4695-ad37-69be444dc181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAudio2\XAudio">
+      <UniqueIdentifier>{8167b8f5-8f1c-4934-82fa-0e81fc245aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源">
+      <UniqueIdentifier>{e6eb65ed-613e-4d84-83a4-24ce29e28e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\FmSound">
+      <UniqueIdentifier>{dcdeac55-7a9e-4a66-a496-6163b0a34c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\ADSR">
+      <UniqueIdentifier>{a0e770c5-df55-4980-bea2-709d582c4aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Envelope">
+      <UniqueIdentifier>{35cd8165-8848-4d99-a051-62dc0fb1fa60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Feedback">
+      <UniqueIdentifier>{5ab39dbd-8b4a-49dc-ba20-00838c2ff6ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Operator">
+      <UniqueIdentifier>{a7696946-8bcd-49da-ad90-1d1c9d6ec272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Parameter">
+      <UniqueIdentifier>{79d48fd8-1c7b-4456-82c2-9cd91eecde63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI">
+      <UniqueIdentifier>{887c7d78-10fb-4ea8-8038-ec383d906b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI\Window">
+      <UniqueIdentifier>{02785458-966d-47f2-83db-1a9994379f95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XAudio2\VoiceCallback.h">
+      <Filter>XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\SourceVoice\SourceVoice.h">
+      <Filter>XAudio2\SourceVoice</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\XAudio.h">
+      <Filter>XAudio2\XAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\SinTbl.h">
+      <Filter>FM音源</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\FmSound.h">
+      <Filter>FM音源\FmSound</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\ADSR\ADSR.h">
+      <Filter>FM音源\ADSR</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Envelope\Envelope.h">
+      <Filter>FM音源\Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Feedback\Feedback.h">
+      <Filter>FM音源\Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Operator\Operator.h">
+      <Filter>FM音源\Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Parameter\Parameter.h">
+      <Filter>FM音源\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="CLI\Window\Window.h">
+      <Filter>CLI\Window</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp">
+      <Filter>XAudio2\SourceVoice</Filter>
+    </ClCompile>
+    <ClCompile Include="XAudio2\XAudio.cpp">
+      <Filter>XAudio2\XAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\FmSound.cpp">
+      <Filter>FM音源\FmSound</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\ADSR\ADSR.cpp">
+      <Filter>FM音源\ADSR</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Envelope\Envelope.cpp">
+      <Filter>FM音源\Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Feedback\Feedback.cpp">
+      <Filter>FM音源\Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Operator\Operator.cpp">
+      <Filter>FM音源\Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Parameter\Parameter.cpp">
+      <Filter>FM音源\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CLI\Window\Window.cpp">
+      <Filter>CLI\Window</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
