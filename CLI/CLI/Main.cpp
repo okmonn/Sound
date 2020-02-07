@@ -112,17 +112,12 @@ int main() {
 	bool key = false;
 	int16_t buf[sample / 100];
 
-	System::Windows::Forms::MessageBox::Show("ƒeƒXƒg‚Å‚·", "Test",
-		System::Windows::Forms::MessageBoxButtons::OK,
-		System::Windows::Forms::MessageBoxIcon::Information);
-
-
 	CLI::Window win;
-	while (win.ShowDialog() != System::Windows::Forms::DialogResult::Cancel) {
-
+	while (true) {
 		fm.CreateSignal(buf, _countof(buf));
 		voice.Play(buf, _countof(buf));
 	}
 
+	Release(&engine);
 	return 0;
 }

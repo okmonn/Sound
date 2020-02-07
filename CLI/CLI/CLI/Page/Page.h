@@ -1,14 +1,13 @@
 #pragma once
-#include "../Page/Page.h"
 
 namespace CLI {
-	ref class Window :
-		public System::Windows::Forms::Form {
+	ref class Page :
+		public System::Windows::Forms::TabPage {
 	public:
 		/*コンストラクタ*/
-		Window();
+		Page();
 		/*デストラクタ*/
-		~Window();
+		~Page();
 
 	private:
 		/*メンバの初期化*/
@@ -17,8 +16,7 @@ namespace CLI {
 	private:
 		/*必須*/
 		System::ComponentModel::Container^ component;
-		/*タスクタブコントローラー*/
-		System::Windows::Forms::TabControl^ tabCtl;
-		Page^ page;
+		/*ラベル*/
+		System::Windows::Forms::Label^ label;
 	};
 }

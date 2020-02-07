@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ADSR">
+      <UniqueIdentifier>{a677a96a-fa31-402a-a8da-387821f188ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Envelope">
+      <UniqueIdentifier>{b2ba0f28-c27f-4585-9acb-172f66ec9115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feedback">
+      <UniqueIdentifier>{db7af83e-98d9-4bb9-8b24-a6be40b9ff18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modulator">
+      <UniqueIdentifier>{7cf0f02b-fc50-4e80-bb1e-6a95173af908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operator">
+      <UniqueIdentifier>{6ee89c87-1ad7-48ca-9081-e92813ba2a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parameter">
+      <UniqueIdentifier>{3d73e2a8-102a-48ce-929e-d31577bd9c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SinTbl">
+      <UniqueIdentifier>{957af969-e797-4bce-93ab-275223597cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FmSound">
+      <UniqueIdentifier>{2ba8f3a1-7129-4836-9c2e-1cf8a010fa55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FmSound\ADSR\ADSR.c">
+      <Filter>ADSR</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Envelope\Envelope.c">
+      <Filter>Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Feedback\Feedback.c">
+      <Filter>Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Modulator\Modulator.c">
+      <Filter>Modulator</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Operator\Operator.c">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Parameter\Parameter.c">
+      <Filter>Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\SinTbl\SinTbl.c">
+      <Filter>SinTbl</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\FmSound.c">
+      <Filter>FmSound</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FmSound\ADSR\ADSR.h">
+      <Filter>ADSR</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Envelope\Envelope.h">
+      <Filter>Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Feedback\Feedback.h">
+      <Filter>Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Modulator\Modulator.h">
+      <Filter>Modulator</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Operator\Operator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Parameter\Parameter.h">
+      <Filter>Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\SinTbl\SinTbl.h">
+      <Filter>SinTbl</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\FmSound.h">
+      <Filter>FmSound</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

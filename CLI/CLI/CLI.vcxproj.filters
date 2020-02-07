@@ -49,6 +49,12 @@
     <Filter Include="CLI\Window">
       <UniqueIdentifier>{02785458-966d-47f2-83db-1a9994379f95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CLI\Page">
+      <UniqueIdentifier>{959ed308-20ef-4b6a-87f0-ad7aec076d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI\Tab">
+      <UniqueIdentifier>{55b5a888-4f5b-40dd-9c62-99050647b9cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XAudio2\VoiceCallback.h">
@@ -84,6 +90,12 @@
     <ClInclude Include="CLI\Window\Window.h">
       <Filter>CLI\Window</Filter>
     </ClInclude>
+    <ClInclude Include="CLI\Page\Page.h">
+      <Filter>CLI\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="CLI\Tab\Tab.h">
+      <Filter>CLI\Tab</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp">
@@ -115,6 +127,12 @@
     </ClCompile>
     <ClCompile Include="CLI\Window\Window.cpp">
       <Filter>CLI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="CLI\Page\Page.cpp">
+      <Filter>CLI\Page</Filter>
+    </ClCompile>
+    <ClCompile Include="CLI\Tab\Tab.cpp">
+      <Filter>CLI\Tab</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
