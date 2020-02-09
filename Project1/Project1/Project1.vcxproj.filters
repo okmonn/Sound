@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ADSR">
+      <UniqueIdentifier>{8460a27b-8716-4c6f-9c6a-bdcf0a220f98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feedback">
+      <UniqueIdentifier>{02d19296-377f-4eaa-905b-3c85cd79e4db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SinWave">
+      <UniqueIdentifier>{4243c3f7-9b28-4f12-92dd-c2b612f8c034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Envelope">
+      <UniqueIdentifier>{6a20c20d-0ac0-4447-825b-539227de89e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operator">
+      <UniqueIdentifier>{ce4f0345-76f2-48fa-b3c1-62bd8dd7e19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parameter">
+      <UniqueIdentifier>{5ec68600-58f4-4d5e-883a-c73a861d9e91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FmSound">
+      <UniqueIdentifier>{3e12cfc7-81ca-4cb3-acb4-36d32ee383b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAudio">
+      <UniqueIdentifier>{dca42ea6-158f-493f-ab51-c53ae51af0ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceVoice">
+      <UniqueIdentifier>{8294422f-afd6-4aa5-a7d1-72ca7d4559e5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSR\ADSR.cpp">
+      <Filter>ADSR</Filter>
+    </ClCompile>
+    <ClCompile Include="Feedback\Feedback.cpp">
+      <Filter>Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="SinWave\SinWave.cpp">
+      <Filter>SinWave</Filter>
+    </ClCompile>
+    <ClCompile Include="Envelope\Envelope.cpp">
+      <Filter>Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="Operator\Operator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameter\Parameter.cpp">
+      <Filter>Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\FmSound.cpp">
+      <Filter>FmSound</Filter>
+    </ClCompile>
+    <ClCompile Include="XAudio2\XAudio.cpp">
+      <Filter>XAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp">
+      <Filter>SourceVoice</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ADSR\ADSR.h">
+      <Filter>ADSR</Filter>
+    </ClInclude>
+    <ClInclude Include="Feedback\Feedback.h">
+      <Filter>Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="SinWave\SinWave.h">
+      <Filter>SinWave</Filter>
+    </ClInclude>
+    <ClInclude Include="Envelope\Envelope.h">
+      <Filter>Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="Operator\Operator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameter\Parameter.h">
+      <Filter>Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\FmSound.h">
+      <Filter>FmSound</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\VoiceCallback.h">
+      <Filter>XAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\XAudio.h">
+      <Filter>XAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\SourceVoice\SourceVoice.h">
+      <Filter>SourceVoice</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
