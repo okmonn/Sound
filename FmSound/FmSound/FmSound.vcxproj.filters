@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ADSR">
+      <UniqueIdentifier>{4e65e9b5-00f5-4bc1-9cc8-aded0ae03f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feedback">
+      <UniqueIdentifier>{3ea3407f-7513-4b39-908e-448edaa5de03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Envelope">
+      <UniqueIdentifier>{7257d2f2-818e-4aef-a7d7-17435fb3b12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operator">
+      <UniqueIdentifier>{66b7b460-843a-4063-af59-794803204b17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FmSound">
+      <UniqueIdentifier>{2e574271-fbf4-48aa-86c1-cc702a57e86d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FmSound\ADSR\ADSR.cpp">
+      <Filter>ADSR</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Feedback\Feedback.cpp">
+      <Filter>Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Envelope\Envelope.cpp">
+      <Filter>Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Operator\Operator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\FmSound.cpp">
+      <Filter>FmSound</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FmSound\ADSR\ADSR.h">
+      <Filter>ADSR</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Feedback\Feedback.h">
+      <Filter>Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\SinTbl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Envelope\Envelope.h">
+      <Filter>Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Operator\Operator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Parameter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\FmSound.h">
+      <Filter>FmSound</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
