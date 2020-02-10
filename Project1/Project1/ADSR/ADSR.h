@@ -5,17 +5,19 @@ struct ADSR {
 public:
 	/*コンストラクタ*/
 	ADSR();
-	/*アタック時のゲインの設定
-	.ゲイン比率(0.0f～1.0f)*/
+	/*アタック時の最大ゲインの設定
+	.ゲイン*/
 	void SetAttackLevel(const float& gain);
-	/*サスティン時のゲイン設定
-	.ゲイン比率(0.0f～1.0f)*/
+	void SetAttackLevel(const std::uint32_t& gain);
+	/*サスティン時の最大ゲインの設定
+	.ゲイン*/
 	void SetSustainLevel(const float& gain);
+	void SetSustainLevel(const std::uint32_t& gain);
 
 public:
-	/*アタック時のゲイン*/
+	/*アタック時の最大ゲイン*/
 	std::uint32_t attackLevel;
-	/*サスティン時のゲイン*/
+	/*サスティン時の最大ゲイン*/
 	std::uint32_t sustainLevel;
 	/*アタック時の持続サンプル数*/
 	std::uint32_t attack;

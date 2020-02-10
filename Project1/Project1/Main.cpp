@@ -1,23 +1,25 @@
-#include "FmSound/FmSound.h"
-#include "XAudio2/XAudio.h"
+#include <XAudio2.h>
 #include <cassert>
-#include <Windows.h>
 #include <combaseapi.h>
+
+#include "FmSound.h"
+
+#pragma comment(lib, "XAudio2.lib")
 
 namespace {
 	const std::uint32_t sample = 48000;
-	const std::uint8_t bit     = 8;
+	const std::uint8_t bit = 8;
 	const std::uint8_t channel = 1;
 }
 
 int main() {
 	auto hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 	assert(hr == S_OK);
-	
-	XAudio* engine = nullptr;
-	hr = CreateXAudio(&engine);
-	assert(hr == S_OK);
-	SourceVoice voice(engine, sample, bit, channel);
+
+	XAudio2* engine = nullptr;
+	hr = CreateXAudio2(&engine);
+	Voice voice(engine, sample, bit, channel);
+	voice.Play();
 
 	FmSound fm(sample);
 
@@ -38,10 +40,10 @@ int main() {
 		}
 
 		fm.CreateSignal(buf, _countof(buf));
-		voice.Play(buf, _countof(buf));
+		voice.AddSoundQueue(buf, _countof(buf));
 	}
 
-	Release(&engine);
+	DeleteXAudio2(&engine);
 	CoUninitialize();
 	return 0;
 }

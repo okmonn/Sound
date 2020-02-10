@@ -29,9 +29,10 @@ private:
 	.生成周波数
 	.サンプリング周波数*/
 	void SetSpeed(const std::uint32_t& freq, const std::uint32_t& sample);
-	/*生成周波数比率の設定
-	.比率(0.0f～1.0f)*/
+	/*生成周波数の設定
+	.比率*/
 	void SetRatio(const float& ratio);
+	void SetRatio(const std::uint32_t& ratio);
 
 private:
 	/*エンベロープ*/
@@ -39,7 +40,7 @@ private:
 	/*フィードバック*/
 	Feedback fb;
 	/*動作フラグ*/
-	bool play;
+	std::uint8_t play;
 	/*読み出し位置*/
 	std::uint32_t pos;
 	/*読み出し速度*/

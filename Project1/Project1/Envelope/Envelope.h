@@ -14,7 +14,7 @@ namespace FM {
 		sustain,
 		/*リリース*/
 		release,
-		/*動作状態数*/
+		/*動作状態最大数*/
 		MAX
 	};
 }
@@ -23,14 +23,13 @@ struct Envelope {
 public:
 	/*コンストラクタ*/
 	Envelope();
+	/*動作状態の設定
+	return 動作中：1　非動作：0*/
+	std::uint8_t SetState(const FM::EV_STATE& state);
 	/*メンバの更新
 	return ゲイン*/
-	std::uint32_t UpDate(void);
-	/*動作状態の取得
-	.エンベロープの動作状態
-	return 動作中：true　非動作：false*/
-	bool SetState(const FM::EV_STATE& state);
-	/*代入演算子オーバーロード
+	std::int32_t UpDate(void);
+	/*代入演算オーバーロード
 	.Envelopeの参照*/
 	void operator=(const Envelope& ev);
 
@@ -43,6 +42,6 @@ public:
 	std::uint32_t gain;
 	/*ゲイン変化量*/
 	std::int32_t delta;
-	/*動作状態遷移カウンタ*/
+	/*動作状態維持カウンタ*/
 	std::uint32_t cnt;
 };

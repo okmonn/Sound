@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{B8D2BFC6-7A6C-45D2-BA1D-29F8822EAFB9}</ProjectGuid>
+    <ProjectGuid>{37D9684F-9035-47FF-88AE-3A728FF299EA}</ProjectGuid>
     <RootNamespace>Project1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -87,10 +87,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\XAudio2\XAudio2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\bin\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,10 +101,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\XAudio2\XAudio2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\bin\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,12 +117,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\XAudio2\XAudio2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\bin\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,37 +135,33 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\XAudio2\XAudio2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\okmon\Documents\GitHub\Sound\XAudio2\bin\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ADSR\ADSR.cpp" />
     <ClCompile Include="Envelope\Envelope.cpp" />
     <ClCompile Include="Feedback\Feedback.cpp" />
-    <ClCompile Include="FmSound\FmSound.cpp" />
+    <ClCompile Include="FmSound.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operator\Operator.cpp" />
-    <ClCompile Include="Parameter\Parameter.cpp" />
     <ClCompile Include="SinWave\SinWave.cpp" />
-    <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp" />
-    <ClCompile Include="XAudio2\XAudio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSR\ADSR.h" />
     <ClInclude Include="Envelope\Envelope.h" />
     <ClInclude Include="Feedback\Feedback.h" />
-    <ClInclude Include="FmSound\FmSound.h" />
+    <ClInclude Include="FmSound.h" />
     <ClInclude Include="Operator\Operator.h" />
-    <ClInclude Include="Parameter\Parameter.h" />
+    <ClInclude Include="Parameter.h" />
     <ClInclude Include="SinWave\SinWave.h" />
-    <ClInclude Include="XAudio2\SourceVoice\SourceVoice.h" />
-    <ClInclude Include="XAudio2\VoiceCallback.h" />
-    <ClInclude Include="XAudio2\XAudio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

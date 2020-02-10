@@ -15,6 +15,7 @@ namespace {
 	const std::uint8_t channel = 1;
 	/*パラメータのプリセット*/
 	Parameter<float> preset[] = {
+		{{0.0f , 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 2.0f }},
 		/*SYN_BASS(2)*/
 		{{0.9f , 0.85f, 0.0f, 1.0f, 0.5f, 0.5f, 1.0f, 0.0f },
 		 {0.8f , 0.2f , 0.0f, 1.5f, 0.5f, 0.5f, 2.0f, 0.0f },
@@ -113,9 +114,9 @@ int main() {
 	voice.Play();
 
 	FmSound fm(sample);
-	fm.SetFreq(GetNoteFreq(60));
+	fm.SetFreq(GetNoteFreq(69));
 	fm.ApplyParameter(preset[0]);
-	fm.ApplyAlgorithmFunction(algorithm[2]);
+	//fm.ApplyAlgorithmFunction(algorithm[2]);
 
 	Window win;
 

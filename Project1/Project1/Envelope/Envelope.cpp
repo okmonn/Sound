@@ -8,23 +8,15 @@ Envelope::Envelope()
 	cnt   = 0;
 }
 
-std::uint32_t Envelope::UpDate(void)
-{
-	std::uint32_t gain = (this->gain >> 16);
-	this->gain += delta;
-	--cnt;
-
-	return gain;
-}
-
-bool Envelope::SetState(const FM::EV_STATE& state)
+std::uint8_t Envelope::SetState(const FM::EV_STATE& state)
 {
 	switch (state)
 	{
 	case FM::EV_STATE::attack:
 		this->state = FM::EV_STATE::attack;
 		if (adsr.attack > 0) {
-			delta = std::int32_t(adsr.attackLevel / adsr.attack);
+			gain  = 0;
+			delta = adsr.attackLevel / adsr.attack;
 			cnt   = adsr.attack;
 			break;
 		}
@@ -36,7 +28,7 @@ bool Envelope::SetState(const FM::EV_STATE& state)
 				delta = -std::int32_t((gain - adsr.sustainLevel) / adsr.decay);
 			}
 			else {
-				delta = std::int32_t((adsr.sustainLevel - gain) / adsr.decay);
+				delta = (adsr.sustainLevel - gain) / adsr.decay;
 			}
 			cnt = adsr.decay;
 			break;
@@ -57,16 +49,25 @@ bool Envelope::SetState(const FM::EV_STATE& state)
 	case FM::EV_STATE::done:
 	default:
 		(*this) = Envelope();
-		return false;
+		return 0;
 	}
 
-	return true;
+	return 1;
+}
+
+std::int32_t Envelope::UpDate(void)
+{
+	std::int32_t gain = (this->gain >> 8);
+	this->gain += delta;
+	--cnt;
+
+	return gain;
 }
 
 void Envelope::operator=(const Envelope& ev)
 {
-	state = FM::EV_STATE::done;
-	gain  = 0;
-	delta = 0;
-	cnt   = 0;
+	state = ev.state;
+	gain  = ev.gain;
+	delta = ev.delta;
+	cnt   = ev.cnt;
 }

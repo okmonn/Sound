@@ -6,12 +6,13 @@ public:
 	/*コンストラクタ*/
 	Feedback();
 	/*フィードバック用ゲインの設定
-	.ゲイン比率(0.0f～1.0f)*/
+	.ゲイン*/
 	void SetGain(const float& gain);
+	void SetGain(const std::uint32_t& gain);
 	/*フィードバック用ゲインの設定
-	.ゲイン比率(0.0f～1.0f)*/
+	.ゲイン*/
 	void SetGainFix(const float& gain);
-	
+
 public:
 	/*フィードバック用ゲイン*/
 	std::uint32_t gain;
