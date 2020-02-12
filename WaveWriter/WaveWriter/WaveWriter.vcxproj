@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{75CCE8D3-49DD-4276-BBF0-7E5D975AEB3F}</ProjectGuid>
-    <RootNamespace>XAudio2</RootNamespace>
+    <ProjectGuid>{B62577CA-4761-41C3-A416-3C18C6990C92}</ProjectGuid>
+    <RootNamespace>WaveWriter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -166,13 +166,10 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="XAudio2\Voice\Voice.cpp" />
-    <ClCompile Include="XAudio2\XAudio2.cpp" />
+    <ClCompile Include="WaveWriter\WaveWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XAudio2\VoiceCallback.h" />
-    <ClInclude Include="XAudio2\Voice\Voice.h" />
-    <ClInclude Include="XAudio2\XAudio2.h" />
+    <ClInclude Include="WaveWriter\WaveWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

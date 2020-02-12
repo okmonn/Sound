@@ -2,55 +2,60 @@
 #include <array>
 #include <vector>
 #include <memory>
+#include <cstdint>
 
 struct IXAudio2SourceVoice;
+template <typename T>
+struct VoiceCallback;
 class XAudio2;
-class VoiceCallback;
 
+template <typename T>
 class Voice {
 	friend XAudio2;
-	friend VoiceCallback;
+	friend VoiceCallback<T>;
 public:
 	/*コンストラクタ
-	.エンジン
+	.XAudio2ｍｐポインタ
 	.サンプリング周波数
-	.量子化ビット数
-	.チャンネル数*/
-	Voice(XAudio2* engine, const std::uint32_t& sample, const std::uint8_t& bit, const std::uint8_t& channel);
+	.チャンネル数
+	.浮動小数点フラグ*/
+	Voice(XAudio2* obj, const std::uint32_t& sample, const std::uint8_t& channel, const std::uint8_t& flag);
 	/*デストラクタ*/
 	~Voice();
-	/*再生*/
+	/*再生開始*/
 	void Play(void);
-	/*停止*/
+	/*再生停止*/
 	void Stop(void);
-	/*サウンドデータの追加
+	/*空きサウンドバッファにサウンドデータを適用
 	.サウンドバッファ
 	.バッファ数*/
-	void AddSoundQueue(const std::int16_t* buf, const std::uint32_t& num);
-	
+	void AddSoundBuffer(const T* buf, const std::uint32_t& num);
+
 private:
-	/*フォーマットの設定
+	/*フォーマットの取得
 	.サンプリング周波数
 	.量子化ビット数
 	.チャンネル数
-	.floatフラグ*/
-	void* GetFmt(const std::uint32_t& sample, const std::uint8_t& bit, const std::uint8_t& channel, const std::uint8_t& flag = 0);
-	/*ソースボイスの生成*/
-	void CreateVoice(void* fmt);
-	/*サブミット*/
-	void Submit(void);
-	/*終了*/
-	void Finish(void);
+	.浮動小数点フラグ
+	return WAVEFORMATEXTENSIBLE*/
+	void* GetFmt(const std::uint32_t& sample, const std::uint8_t& bit, const std::uint8_t& channel, const std::uint8_t& flag);
+	/*ソースボイスの生成
+	.WAVEFORMATEXTENSIBLEのポインタ*/
+	void CreateSourceVoice(const void* fmt);
+	/*読み込みインデックスの更新*/
+	void Reading(void);
 
 private:
-	/*エンジン*/
+	/*XAudio2のポインタ*/
 	XAudio2* engine;
-	/*ボイスコールバック*/
-	std::unique_ptr<VoiceCallback>callback;
+	/*コールバッククラス*/
+	std::unique_ptr<VoiceCallback<T>>callback;
 	/*ソースボイス*/
 	IXAudio2SourceVoice* voice;
-	/*サウンドデータ*/
-	std::array<std::vector<std::int16_t>, 2>wave;
-	int index = 0;
-	int read = 0;
+	/*バッファインデックス*/
+	std::uint32_t index;
+	/*読み込みインデックス*/
+	std::uint32_t read;
+	/*サウンドバッファ*/
+	std::array<std::vector<T>, 2>wave;
 };

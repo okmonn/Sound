@@ -115,8 +115,8 @@ int main() {
 
 	FmSound fm(sample);
 	fm.SetFreq(GetNoteFreq(69));
-	fm.ApplyParameter(preset[0]);
-	//fm.ApplyAlgorithmFunction(algorithm[2]);
+	fm.ApplyParameter(preset[1]);
+	fm.ApplyAlgorithmFunction(algorithm[2]);
 
 	Window win;
 

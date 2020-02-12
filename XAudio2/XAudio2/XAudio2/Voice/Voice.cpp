@@ -1,10 +1,7 @@
 #include "Voice.h"
 #include "../XAudio2.h"
-
-#include <cstdint>
+#include "../VoiceCallback.h"
 #include <cassert>
-#include <xaudio2.h>
-
 #include <ks.h>
 #include <ksmedia.h>
 
@@ -16,64 +13,29 @@ namespace {
 	};
 }
 
-class VoiceCallback :
-	public IXAudio2VoiceCallback {
-public:
-	/*コンストラクタ*/
-	VoiceCallback(Voice* voice) : voice(voice) {}
-	/*デストラクタ*/
-	~VoiceCallback() {}
-	/*現在のバッファの最初のバイトが消費される前に呼ばれる
-	.XAUDIO2_BUFFER.pContext*/
-	void __stdcall OnBufferStart(void* pBufferContext) {}
-	/*現在のバッファの最後のバイトが消費された際に呼ばれる
-	.XAUDIO2_BUFFER.pContext*/
-	void __stdcall OnBufferEnd(void* pBufferContext) {
-		voice->read = (voice->read + 1) % voice->wave.size();
-	}
-	/*ループの終了位置に達した際に呼ばれる
-	.XAUDIO2_BUFFER.pContext*/
-	void __stdcall OnLoopEnd(void* pBufferContext) {}
-	/*最終バッファの使用が完了した際に呼ばれる*/
-	void __stdcall OnStreamEnd(void) {}
-	/*エラーが発生した際に呼ばれる
-	.XAUDIO2_BUFFER.pContext*/
-	void __stdcall OnVoiceError(void* pBufferContext, long error) {}
-	/*音声の処理パスが終了した際に呼ばれる*/
-	void __stdcall OnVoiceProcessingPassEnd() {}
-	/*キューからデータを読み取る前に呼ばれる
-	.必要データバイトサイズ*/
-	void __stdcall OnVoiceProcessingPassStart(std::uint32_t BytesRequired) {
-		voice->Submit();
-	}
-
-private:
-	/*ボイス*/
-	Voice* voice;
-	/*イベントハンドル*/
-	void* handle;
-};
-
-Voice::Voice(XAudio2* engine, const std::uint32_t& sample, const std::uint8_t& bit, const std::uint8_t& channel) :
-	engine(engine), callback(std::make_unique<VoiceCallback>(this)), voice(nullptr)
+template<typename T>
+Voice<T>::Voice(XAudio2* obj, const std::uint32_t& sample, const std::uint8_t& channel, const std::uint8_t& flag) :
+	engine(obj), callback(std::make_unique<VoiceCallback<T>>(this)), voice(nullptr), index(0), read(0)
 {
-	CreateVoice(GetFmt(sample, bit, channel));
-	if (this->engine->voice.find(std::uint32_t(this)) == this->engine->voice.end()) {
-		this->engine->voice[std::uint32_t(this)] = this;
-	}
+	CreateSourceVoice(GetFmt(sample, sizeof(T) * 8, channel, flag));
 }
+template Voice<std::uint8_t>::Voice(XAudio2*, const std::uint32_t&, const std::uint8_t&, const std::uint8_t&);
+template Voice<std::int16_t>::Voice(XAudio2*, const std::uint32_t&, const std::uint8_t&, const std::uint8_t&);
 
-Voice::~Voice()
+template<typename T>
+Voice<T>::~Voice()
 {
-	Finish();
-	if (engine != nullptr) {
-		if (this->engine->voice.find(std::uint32_t(this)) != this->engine->voice.end()) {
-			this->engine->voice.erase(this->engine->voice.find(std::uint32_t(this)));
-		}
+	if (voice != nullptr) {
+		voice->DestroyVoice();
+		voice = nullptr;
 	}
+	engine->DeleteList(this);
 }
+template Voice<std::uint8_t>::~Voice();
+template Voice<std::int16_t>::~Voice();
 
-void* Voice::GetFmt(const std::uint32_t& sample, const std::uint8_t& bit, const std::uint8_t& channel, const std::uint8_t& flag)
+template<typename T>
+void* Voice<T>::GetFmt(const std::uint32_t& sample, const std::uint8_t& bit, const std::uint8_t& channel, const std::uint8_t& flag)
 {
 	static WAVEFORMATEXTENSIBLE fmt{};
 	fmt.Format.cbSize               = sizeof(fmt) - sizeof(fmt.Format);
@@ -89,50 +51,58 @@ void* Voice::GetFmt(const std::uint32_t& sample, const std::uint8_t& bit, const 
 
 	return (void*)&fmt;
 }
+template void* Voice<std::uint8_t>::GetFmt(const std::uint32_t&, const std::uint8_t&, const std::uint8_t&, const std::uint8_t&);
+template void* Voice<std::int16_t>::GetFmt(const std::uint32_t&, const std::uint8_t&, const std::uint8_t&, const std::uint8_t&);
 
-void Voice::CreateVoice(void* fmt)
+template<typename T>
+void Voice<T>::CreateSourceVoice(const void* fmt)
 {
-	auto hr = engine->audio->CreateSourceVoice(&voice, (WAVEFORMATEX*)fmt, 0, 1.0f, &(*callback), nullptr, nullptr);
+	auto hr = engine->audio->CreateSourceVoice(&voice, (WAVEFORMATEX*)fmt, XAUDIO2_VOICE_USEFILTER, 1.0f, &(*callback));
 	assert(hr == S_OK);
 }
+template void Voice<std::uint8_t>::CreateSourceVoice(const void*);
+template void Voice<std::int16_t>::CreateSourceVoice(const void*);
 
-void Voice::Play(void)
+template<typename T>
+void Voice<T>::Play(void)
 {
 	auto hr = voice->Start();
 	assert(hr == S_OK);
 }
+template void Voice<std::uint8_t>::Play(void);
+template void Voice<std::int16_t>::Play(void);
 
-void Voice::Stop(void)
+template<typename T>
+void Voice<T>::Stop(void)
 {
-	auto hr = voice->Stop();
+	auto hr = voice->Stop(XAUDIO2_PLAY_TAILS);
 	assert(hr == S_OK);
 }
+template void Voice<std::uint8_t>::Stop(void);
+template void Voice<std::int16_t>::Stop(void);
 
-void Voice::AddSoundQueue(const std::int16_t* buf, const std::uint32_t& num)
+template<typename T>
+void Voice<T>::AddSoundBuffer(const T* buf, const std::uint32_t& num)
 {
-	while (index != read) {}
+	while (index != read);
 	wave[index].assign(&buf[0], &buf[num]);
+
+	XAUDIO2_BUFFER buffer{};
+	buffer.AudioBytes = std::uint32_t(sizeof(wave[index][0]) * wave[index].size());
+	buffer.pAudioData = (std::uint8_t*)wave[index].data();
+
+	auto hr = voice->SubmitSourceBuffer(&buffer, nullptr);
+	assert(hr == S_OK);
+
 	index = (index + 1) % wave.size();
 }
+template void Voice<std::uint8_t>::AddSoundBuffer(const std::uint8_t*, const std::uint32_t&);
+template void Voice<std::int16_t>::AddSoundBuffer(const std::int16_t*, const std::uint32_t&);
 
-void Voice::Submit(void)
+template<typename T>
+void Voice<T>::Reading(void)
 {
-	if (wave[read].size() > 0) {
-		XAUDIO2_BUFFER buf{};
-		buf.AudioBytes = sizeof(wave[read][0]) * wave[read].size();
-		buf.pAudioData = (std::uint8_t*)wave[read].data();
-
-		auto hr = voice->SubmitSourceBuffer(&buf, nullptr);
-		assert(hr == S_OK);
-	}
+	read = (read + 1) % wave.size();
 }
-
-void Voice::Finish(void)
-{
-	if (voice != nullptr) {
-		Stop();
-		voice->DestroyVoice();
-		voice = nullptr;
-	}
-	engine = nullptr;
-}
+template void Voice<std::uint8_t>::Reading(void);
+template void Voice<std::int16_t>::Reading(void);

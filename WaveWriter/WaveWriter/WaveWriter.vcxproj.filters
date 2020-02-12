@@ -13,30 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="XAudio2">
-      <UniqueIdentifier>{abcc8148-346d-4617-9c7b-0944b21fd815}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Voice">
-      <UniqueIdentifier>{29b3f77d-fd8b-484b-99c8-8a524381128a}</UniqueIdentifier>
+    <Filter Include="WaveWriter">
+      <UniqueIdentifier>{c1d379a2-4a95-480f-8f7f-76f4e8ef1862}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="XAudio2\XAudio2.cpp">
-      <Filter>XAudio2</Filter>
-    </ClCompile>
-    <ClCompile Include="XAudio2\Voice\Voice.cpp">
-      <Filter>Voice</Filter>
+    <ClCompile Include="WaveWriter\WaveWriter.cpp">
+      <Filter>WaveWriter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XAudio2\XAudio2.h">
-      <Filter>XAudio2</Filter>
-    </ClInclude>
-    <ClInclude Include="XAudio2\Voice\Voice.h">
-      <Filter>Voice</Filter>
-    </ClInclude>
-    <ClInclude Include="XAudio2\VoiceCallback.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="WaveWriter\WaveWriter.h">
+      <Filter>WaveWriter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
