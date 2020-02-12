@@ -5,7 +5,7 @@
 .FmSoundのポインタ
 return 信号*/
 std::int32_t Default(FmSound* fm) {
-	return fm->op[0].CreateSignalFB();
+	return fm->op[0].CreateSignalSimple();
 }
 
 FmSound::FmSound()

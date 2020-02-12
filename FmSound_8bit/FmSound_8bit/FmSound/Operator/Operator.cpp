@@ -1,5 +1,6 @@
 #include "Operator.h"
-#include "../SinWave/SinWave.h"
+#include "../SinTbl.h"
+
 Operator::Operator()
 {
 	play  = 0;
@@ -34,7 +35,7 @@ std::int32_t Operator::CreateSignalSimple(void)
 		play = ev.SetState(FM::EV_STATE((std::uint32_t(ev.state) + 1) % std::uint32_t(FM::EV_STATE::MAX)));
 	}
 
-	std::int32_t signal = SinWave::Get().SinTbl()[(pos >> 20)] * ev.UpDate();
+	std::int32_t signal = sinTbl[(pos >> 20)] * ev.UpDate();
 	pos += speed;
 
 	return signal;
@@ -51,8 +52,8 @@ std::int32_t Operator::CreateSignalFB(void)
 	}
 
 	std::int32_t gain   = ev.UpDate();
-	std::int32_t signal = SinWave::Get().SinTbl()[((pos + fb.data * fb.gain) >> 20)] * gain;
-	fb.data = (SinWave::Get().SinTbl()[(pos >> 20)] * gain) >> 12;
+	std::int32_t signal = sinTbl[((pos + fb.data * fb.gain) >> 20)] * gain;
+	fb.data = (sinTbl[(pos >> 20)] * gain) >> 12;
 	pos += speed;
 	return signal;
 }
@@ -67,7 +68,7 @@ std::int32_t Operator::CreateSignalModulation(const std::int32_t& mod)
 		play = ev.SetState(FM::EV_STATE((std::uint32_t(ev.state) + 1) % std::uint32_t(FM::EV_STATE::MAX)));
 	}
 
-	std::int32_t signal = SinWave::Get().SinTbl()[((pos + mod) >> 20)] * ev.UpDate();
+	std::int32_t signal = sinTbl[((pos + mod) >> 20)] * ev.UpDate();
 	pos += speed;
 
 	return signal;

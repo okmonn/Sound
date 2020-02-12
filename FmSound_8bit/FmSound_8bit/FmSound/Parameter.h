@@ -13,7 +13,7 @@ public:
 		release      = T(0);
 		freq         = T(1);
 		gain         = T(1);
-		fb_gain      = T(2);
+		fb_gain      = T(1);
 	}
 	/*コンストラクタ
 	.アタック時の最大ゲイン

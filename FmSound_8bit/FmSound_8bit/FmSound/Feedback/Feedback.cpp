@@ -1,5 +1,5 @@
 #include "Feedback.h"
-#include "../SinWave/SinWave.h"
+#include "../SinTbl.h"
 
 Feedback::Feedback()
 {
@@ -19,5 +19,5 @@ void Feedback::SetGain(const std::uint32_t& gain)
 
 void Feedback::SetGainFix(const float& gain)
 {
-	this->gain = std::uint32_t(float(SinWave::Get().SinTbl().size() * 4) * gain);
+	this->gain = std::uint32_t(float(sinTbl.size() * 4) * gain);
 }
