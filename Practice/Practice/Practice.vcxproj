@@ -93,11 +93,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\WaveWriter\WaveWriter\WaveWriter;..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <AdditionalLibraryDirectories>..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\WaveWriter\bin\$(PlatformTarget)\$(Configuration);..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <SubSystem>NotSet</SubSystem>
@@ -107,11 +107,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\WaveWriter\WaveWriter\WaveWriter;..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <AdditionalLibraryDirectories>..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\WaveWriter\bin\$(PlatformTarget)\$(Configuration);..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <SubSystem>NotSet</SubSystem>
@@ -121,11 +121,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\WaveWriter\WaveWriter\WaveWriter;..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <AdditionalLibraryDirectories>..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\WaveWriter\bin\$(PlatformTarget)\$(Configuration);..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <SubSystem>NotSet</SubSystem>
@@ -135,11 +135,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\WaveWriter\WaveWriter\WaveWriter;..\..\XAudio2\XAudio2\XAudio2;..\..\FmSound\FmSound\FmSound;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <AdditionalLibraryDirectories>..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\WaveWriter\bin\$(PlatformTarget)\$(Configuration);..\..\XAudio2\bin\$(PlatformTarget)\$(Configuration);..\..\FmSound\bin\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <SubSystem>NotSet</SubSystem>

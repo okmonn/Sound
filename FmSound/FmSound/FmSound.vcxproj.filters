@@ -14,19 +14,22 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="ADSR">
-      <UniqueIdentifier>{4e65e9b5-00f5-4bc1-9cc8-aded0ae03f1e}</UniqueIdentifier>
+      <UniqueIdentifier>{83669e63-a0a7-4575-bb63-db3c9f43afb9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Feedback">
-      <UniqueIdentifier>{3ea3407f-7513-4b39-908e-448edaa5de03}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Envelope">
-      <UniqueIdentifier>{7257d2f2-818e-4aef-a7d7-17435fb3b12c}</UniqueIdentifier>
+      <UniqueIdentifier>{c7afd4be-4d93-4bef-b2ed-1eb7f61b6ed4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Operator">
-      <UniqueIdentifier>{66b7b460-843a-4063-af59-794803204b17}</UniqueIdentifier>
+      <UniqueIdentifier>{46c3d866-7963-4e92-a21d-b754a5b241c9}</UniqueIdentifier>
     </Filter>
     <Filter Include="FmSound">
-      <UniqueIdentifier>{2e574271-fbf4-48aa-86c1-cc702a57e86d}</UniqueIdentifier>
+      <UniqueIdentifier>{7034043b-44ba-4717-b001-c27b64152a37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Envelope">
+      <UniqueIdentifier>{f29e227e-3959-4699-bbaf-2355619993d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SinWaveGenerator">
+      <UniqueIdentifier>{1a556261-4f40-4520-b71a-88bbff473ad0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,14 +39,17 @@
     <ClCompile Include="FmSound\Feedback\Feedback.cpp">
       <Filter>Feedback</Filter>
     </ClCompile>
-    <ClCompile Include="FmSound\Envelope\Envelope.cpp">
-      <Filter>Envelope</Filter>
-    </ClCompile>
     <ClCompile Include="FmSound\Operator\Operator.cpp">
       <Filter>Operator</Filter>
     </ClCompile>
     <ClCompile Include="FmSound\FmSound.cpp">
       <Filter>FmSound</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\Envelope\Envelope.cpp">
+      <Filter>Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="FmSound\SinWaveGenerator\SinWaveGenerator.cpp">
+      <Filter>SinWaveGenerator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,20 +59,23 @@
     <ClInclude Include="FmSound\Feedback\Feedback.h">
       <Filter>Feedback</Filter>
     </ClInclude>
-    <ClInclude Include="FmSound\SinTbl.h">
+    <ClInclude Include="FmSound\Parameter.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="FmSound\Envelope\Envelope.h">
-      <Filter>Envelope</Filter>
     </ClInclude>
     <ClInclude Include="FmSound\Operator\Operator.h">
       <Filter>Operator</Filter>
     </ClInclude>
-    <ClInclude Include="FmSound\Parameter.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="FmSound\FmSound.h">
       <Filter>FmSound</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\Envelope\Envelope.h">
+      <Filter>Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\SinTbl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="FmSound\SinWaveGenerator\SinWaveGenerator.h">
+      <Filter>SinWaveGenerator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

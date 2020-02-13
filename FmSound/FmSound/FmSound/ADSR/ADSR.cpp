@@ -1,6 +1,6 @@
 #include "ADSR.h"
 
-ADSR::ADSR()
+FM::ADSR::ADSR()
 {
 	attack  = 0;
 	decay   = 0;
@@ -9,22 +9,22 @@ ADSR::ADSR()
 	SetSustainLevel(1.0f);
 }
 
-void ADSR::SetAttackLevel(const float& gain)
+void FM::ADSR::SetAttackLevel(const float& gain)
 {
 	attackLevel = std::uint32_t(double(0xffffffff) * gain);
 }
 
-void ADSR::SetAttackLevel(const std::uint32_t& gain)
+void FM::ADSR::SetAttackLevel(const std::uint32_t& gain)
 {
 	attackLevel = gain;
 }
 
-void ADSR::SetSustainLevel(const float& gain)
+void FM::ADSR::SetSustainLevel(const float& gain)
 {
 	sustainLevel = std::uint32_t(double(0xffffffff) * gain);
 }
 
-void ADSR::SetSustainLevel(const std::uint32_t& gain)
+void FM::ADSR::SetSustainLevel(const std::uint32_t& gain)
 {
 	sustainLevel = gain;
 }

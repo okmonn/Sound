@@ -2,19 +2,21 @@
 
 #include <FmSound.h>
 #include <XAudio2.h>
+#include <WaveWriter.h>
 
-#pragma comment(lib, "XAudio2.lib")
 #pragma comment(lib, "FmSound.lib")
+#pragma comment(lib, "XAudio2.lib")
+#pragma comment(lib, "WaveWriter.lib")
 
 namespace {
 	/*サンプリング周波数*/
 	const std::uint32_t sample = 48000;
 	/*量子化ビット数*/
-	const std::uint8_t bit     = 16;
+	const std::uint8_t bit     = 8;
 	/*チャンネル数*/
 	const std::uint8_t channel = 1;
 	/*パラメータのプリセット*/
-	Parameter<float> preset[] = {
+	FM::ParamRatio preset[] = {
 		{{0.0f , 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f }},
 		/*SYN_BASS(2)*/
 		{{0.9f , 0.85f, 0.0f, 1.0f, 0.5f, 0.5f, 1.0f, 0.0f },
@@ -43,57 +45,58 @@ namespace {
 		 {0.3f, 0.4f, 0.4f , 0.1f , 1.2f, 4.0f, 0.25f, 1.0f}}
 	};
 	/*アルゴリズムごとの処理*/
-	std::function<std::int32_t(FmSound*)>algorithm[] = {
-		[](FmSound* fm)->std::int32_t {
+	template <typename T>
+	std::function<std::int32_t(FM::FmSound<T>*)>algorithm[] = {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t signal = fm->op[3].CreateSignalFB();
 			signal = fm->op[2].CreateSignalModulation(signal);
 			signal = fm->op[1].CreateSignalModulation(signal);
 			signal = fm->op[0].CreateSignalModulation(signal);
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t pcm = fm->op[3].CreateSignalFB();
 			std::int32_t signal = fm->op[2].CreateSignalSimple();
 			signal = fm->op[1].CreateSignalModulation(signal + pcm);
 			signal = fm->op[0].CreateSignalModulation(signal);
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t pcm    = fm->op[3].CreateSignalFB();
 			std::int32_t signal = fm->op[2].CreateSignalSimple();
 			signal = fm->op[1].CreateSignalModulation(signal);
 			signal = fm->op[0].CreateSignalModulation(signal + pcm);
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t signal = fm->op[3].CreateSignalFB();
 			signal = fm->op[2].CreateSignalModulation(signal);
 			std::int32_t pcm = fm->op[1].CreateSignalSimple();
 			signal = fm->op[0].CreateSignalModulation(signal + pcm);
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t signal = fm->op[3].CreateSignalFB();
 			signal = fm->op[2].CreateSignalModulation(signal);
 			std::int32_t pcm = fm->op[1].CreateSignalSimple();
 			signal += fm->op[0].CreateSignalModulation(pcm);
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t pcm = fm->op[3].CreateSignalFB();
 			std::int32_t signal = fm->op[2].CreateSignalModulation(pcm);
 			signal += fm->op[1].CreateSignalModulation(pcm);
 			signal += fm->op[0].CreateSignalModulation(pcm);
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t signal = fm->op[3].CreateSignalFB();
 			signal = fm->op[2].CreateSignalModulation(signal);
 			signal += fm->op[1].CreateSignalSimple();
 			signal += fm->op[0].CreateSignalSimple();
 			return signal;
 		},
-		[](FmSound* fm)->std::int32_t {
+		[](FM::FmSound<T>* fm)->std::int32_t {
 			std::int32_t signal = fm->op[3].CreateSignalFB();
 			signal += fm->op[2].CreateSignalSimple();
 			signal += fm->op[1].CreateSignalSimple();
@@ -110,18 +113,21 @@ float GetNoteFreq(const std::uint32_t& note) {
 int main() {
 	XAudio2* engine = nullptr;
 	CreateXAudio2(&engine);
-	Voice voice(engine, sample, bit, channel);
-	voice.Play();
+	Voice<std::uint8_t>* voice = nullptr;
+	engine->CreateVoice(&voice, sample, channel);
+	voice->Play();
 
-	FmSound fm(sample);
+	FM::Fm_8 fm(sample);
 	fm.SetFreq(GetNoteFreq(69));
 	fm.ApplyParameter(preset[1]);
-	fm.ApplyAlgorithmFunction(algorithm[2]);
+	fm.ApplyAlgorithmFunction(algorithm<std::uint8_t>[2]);
+
+	WaveWriter writer("test.wav", sample, bit, channel);
 
 	Window win;
 
 	bool key = false;
-	std::int16_t buf[sample / 100];
+	std::uint8_t buf[sample / 100];
 	fm.Start();
 	std::uint32_t cnt = 0;
 	while (cnt < 300) {
@@ -130,11 +136,12 @@ int main() {
 			fm.Stop();
 		}
 		fm.CreateSignal(buf, _countof(buf));
-		voice.AddSoundQueue(buf, _countof(buf));
+		voice->AddSoundBuffer(buf, _countof(buf));
+		writer.Write(buf, _countof(buf));
 
 		System::Windows::Forms::Application::DoEvents();
 	}
-
+	writer.Close();
 	DeleteXAudio2(&engine);
 	return 0;
 }

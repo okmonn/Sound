@@ -1,6 +1,6 @@
 #include "Envelope.h"
 
-Envelope::Envelope()
+FM::Envelope::Envelope()
 {
 	state = FM::EV_STATE::done;
 	gain  = 0;
@@ -8,7 +8,16 @@ Envelope::Envelope()
 	cnt   = 0;
 }
 
-std::uint8_t Envelope::SetState(const FM::EV_STATE& state)
+std::uint32_t FM::Envelope::UpDate(void)
+{
+	std::uint32_t gain = this->gain;
+	this->gain += delta;
+	--cnt;
+
+	return gain;
+}
+
+std::uint8_t FM::Envelope::SetState(const EV_STATE& state)
 {
 	switch (state)
 	{
@@ -55,16 +64,7 @@ std::uint8_t Envelope::SetState(const FM::EV_STATE& state)
 	return 1;
 }
 
-std::int32_t Envelope::UpDate(void)
-{
-	std::int32_t gain = (this->gain >> 16);
-	this->gain += delta;
-	--cnt;
-
-	return gain;
-}
-
-void Envelope::operator=(const Envelope& ev)
+void FM::Envelope::operator=(const Envelope& ev)
 {
 	state = ev.state;
 	gain  = ev.gain;

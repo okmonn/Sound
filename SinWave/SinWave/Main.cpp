@@ -29,7 +29,13 @@ int main() {
 				break;
 			}
 
-			std::int32_t val = std::int32_t((0x7f * std::sin(2.0f * std::acos(-1.0f) * index / sample)) + 0x7f);
+			std::int32_t val = 0;
+			if (type == "std::uint8_t") {
+				val = std::int32_t((0x7f * std::sin(2.0f * std::acos(-1.0f) * index / sample)) + 0x7f);
+			}
+			else if(type == "std::int16_t") {
+				val = std::int32_t(0x7fff * std::sin(2.0f * std::acos(-1.0f) * index / sample));
+			}
 			file << val << ",";
 
 			++index;
