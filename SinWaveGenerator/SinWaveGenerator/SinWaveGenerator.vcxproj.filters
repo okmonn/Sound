@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{823c9ce7-26c6-46a7-8821-6571c0f72c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash">
+      <UniqueIdentifier>{281d1d94-f3af-4390-9ac7-18721e77839a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Label">
+      <UniqueIdentifier>{5fa98409-4e23-49c9-9d0a-6b22f334d240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Button">
+      <UniqueIdentifier>{609fc6fb-084b-4176-b347-ec044e434738}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Splash\Splash.cpp">
+      <Filter>Splash</Filter>
+    </ClCompile>
+    <ClCompile Include="Label\Label.cpp">
+      <Filter>Label</Filter>
+    </ClCompile>
+    <ClCompile Include="Button\Button.cpp">
+      <Filter>Button</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window\Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Splash\Splash.h">
+      <Filter>Splash</Filter>
+    </ClInclude>
+    <ClInclude Include="Label\Label.h">
+      <Filter>Label</Filter>
+    </ClInclude>
+    <ClInclude Include="Button\Button.h">
+      <Filter>Button</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
