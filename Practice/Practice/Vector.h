@@ -1,4 +1,6 @@
-#pragma once
+#ifndef OKMONN_VECTOR
+#define OKMONN_VECTOR
+
 #include <cmath>
 #include <cstdint>
 
@@ -279,6 +281,38 @@ namespace okmonn {
 		}
 
 	public:
+		/*X & Yの取得
+		return Vector2*/
+		Vector2<T> xy(void) const {
+			return Vector2<T>(x, y);
+		}
+		/*X & Zの取得
+		return Vector2*/
+		Vector2<T> xz(void) const {
+			return Vector2<T>(x, z);
+		}
+		/*Y & Xの取得
+		return Vector2*/
+		Vector2<T> yx(void) const {
+			return Vector2<T>(y, x);
+		}
+		/*Y & Zの取得
+		return Vector2*/
+		Vector2<T> yz(void) const {
+			return Vector2<T>(y, z);
+		}
+		/*Z & Xの取得
+		return Vector2*/
+		Vector2<T> zx(void) const {
+			return Vector2<T>(z, x);
+		}
+		/*Z & Yの取得
+		return Vector2*/
+		Vector2<T> zy(void) const {
+			return Vector2<T>(z, y);
+		}
+
+	public:
 		/*X要素*/
 		T x;
 		/*Y要素*/
@@ -286,4 +320,23 @@ namespace okmonn {
 		/*Z要素*/
 		T z;
 	};
+	template <typename T>
+	T DotProduct(const Vector3<T>& vec1, const Vector3<T>& vec2) {
+		return (vec1.x * vec2.x) + (vec1.y * vec2.y) + (vec1.z * vec2.z);
+	}
+	/*外積
+	.ベクトル1
+	.ベクトル2
+	return 外積*/
+	template <typename T>
+	Vector3<T> CrossProduct(const Vector3<T>& vec1, const Vector3<T>& vec2) {
+		return Vector3<T>((vec1.y * vec2.z) - (vec1.z * vec2.y),
+						  (vec1.z * vec2.x) - (vec1.z * vec2.z), 
+						  (vec1.x * vec2.y) - (vec1.y * vec2.x));
+	}
+
+	using Vec3  = Vector3<int32_t>;
+	using Vec3f = Vector3<float>;
 }
+
+#endif
