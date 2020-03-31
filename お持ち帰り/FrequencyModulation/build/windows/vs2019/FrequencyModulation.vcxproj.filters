@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Modulator">
+      <UniqueIdentifier>{5be82251-f146-43d0-8ea4-1c5dcd8b1b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feedback">
+      <UniqueIdentifier>{d702105a-1101-4dff-9768-58ed4d866a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Envelope">
+      <UniqueIdentifier>{a5760b43-7bf4-4150-a8d0-7b8817d2ec0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSR">
+      <UniqueIdentifier>{5bccd626-ab76-45e4-9abb-817331d1f2e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSR\Attack">
+      <UniqueIdentifier>{6128059a-5ca9-47f9-9490-58b2a49bc5e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSR\Decay">
+      <UniqueIdentifier>{751f65ee-d564-4288-a713-66fa7b2785d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSR\Sustaion">
+      <UniqueIdentifier>{f7e3bbf8-dec3-4fb8-8e97-91372628175f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSR\Release">
+      <UniqueIdentifier>{f67a7d80-b17a-4ebd-b91b-1e6700910c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Carrier">
+      <UniqueIdentifier>{35b33033-cab7-45d2-b85c-e705a05a7595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parameter">
+      <UniqueIdentifier>{5a65703c-e194-4ada-bc59-4ef80508da77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAudio2">
+      <UniqueIdentifier>{fdc7cfc0-ac4a-4de9-b898-360e9fa148c8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\include\Modulator.h">
+      <Filter>Modulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\Feedback.h">
+      <Filter>Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\Envelope.h">
+      <Filter>Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\ADSR\Attack.h">
+      <Filter>ADSR\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\ADSR\Decay.h">
+      <Filter>ADSR\Decay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\ADSR\Sustain.h">
+      <Filter>ADSR\Sustaion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\ADSR\Release.h">
+      <Filter>ADSR\Release</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\Carrier.h">
+      <Filter>Carrier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\Parameter.h">
+      <Filter>Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\include\XAudio2.h">
+      <Filter>XAudio2</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\main.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\Modulator.c">
+      <Filter>Modulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\Feedback.c">
+      <Filter>Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\Envelope.c">
+      <Filter>Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\ADSR\Attack.c">
+      <Filter>ADSR\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\ADSR\Decay.c">
+      <Filter>ADSR\Decay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\ADSR\Sustain.c">
+      <Filter>ADSR\Sustaion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\ADSR\Release.c">
+      <Filter>ADSR\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\Carrier.c">
+      <Filter>Carrier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\source\XAudio2.c">
+      <Filter>XAudio2</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
